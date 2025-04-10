@@ -30,18 +30,18 @@ body {
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+    width: 90%; /* Already good */
+    max-width: 1200px; /* Good */
+  }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
 }
-
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive text */
+  }
 p {
     margin-bottom: 1rem;
 }
@@ -183,9 +183,8 @@ nav ul li a:hover::after {
 
 /* Hero Section */
 .hero {
-    padding: 180px 0 100px;
-    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
-}
+    padding: clamp(100px, 10vh, 180px) 0; /* Dynamic spacing */
+  }
 
 .hero .container {
     display: flex;
@@ -247,6 +246,17 @@ nav ul li a:hover::after {
     gap: 30px;
     margin-top: 50px;
 }
+.projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+  }
+  
+  /* For mobile menus */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
 
 .project-card {
     background-color: white;
